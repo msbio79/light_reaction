@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>엽록체 광인산화 시뮬레이션</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 왼쪽 메뉴 영역 -->
+        <aside class="sidebar">
+            <h1 class="title">광인산화 시뮬레이션</h1>
+            <p class="subtitle">명반응: 틸라코이드 막</p>
+
+            <div class="mode-selector">
+                <button id="mode-noncyclic" class="mode-btn active">비순환적 광인산화</button>
+                <button id="mode-cyclic" class="mode-btn">순환적 광인산화</button>
+            </div>
+
+            <div class="menu-scroll-area">
+                <div class="control-group">
+                    <h2>자동 진행</h2>
+                    <button id="btn-play-all" class="btn primary">전체 시뮬레이션 시작</button>
+                    <button id="btn-pause" class="btn secondary">일시정지</button>
+                    <button id="btn-reset" class="btn danger">초기화</button>
+                </div>
+
+                <div class="control-group" id="noncyclic-steps">
+                    <h2>비순환적 단계별 진행</h2>
+                    <button id="btn-step1" class="btn step-btn">1. 물의 광분해</button>
+                    <button id="btn-step2" class="btn step-btn">2. 전자 전달 및 H+ 이동</button>
+                    <button id="btn-step3" class="btn step-btn">3. 광계 I과 NADPH 생성</button>
+                    <button id="btn-step4" class="btn step-btn">4. ATP 합성</button>
+                </div>
+
+                <div class="control-group" id="cyclic-steps" style="display: none;">
+                    <h2>순환적 단계별 진행</h2>
+                    <button id="btn-cyc-step1" class="btn step-btn">1. 광계 I 전자 방출</button>
+                    <button id="btn-cyc-step2" class="btn step-btn">2. 전자 순환 및 H+ 능동수송</button>
+                    <button id="btn-cyc-step3" class="btn step-btn">3. ATP 합성</button>
+                </div>
+
+                <div class="description-box">
+                    <h3>현재 상태 설명</h3>
+                    <p id="status-text">시뮬레이션을 시작하려면 버튼을 눌러주세요.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 오른쪽 캔버스 영역 -->
+        <main class="canvas-container" id="canvas-container">
+            <div class="canvas-controls">
+                <button id="btn-zoom-in" class="zoom-btn">+</button>
+                <button id="btn-zoom-out" class="zoom-btn">-</button>
+                <button id="btn-zoom-reset" class="zoom-btn">⟲</button>
+            </div>
+            <canvas id="sim-canvas"></canvas>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
